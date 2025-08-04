@@ -27,8 +27,8 @@ mongoose
   .catch((err) => {
     console.error("Database connection error:", err);
   });
-const register = require("./router"); 
-app.use("/volunteer", register);  
+const register = require("./router");
+app.use("/basti_ki_pathshala", register);
 
 // creating server
 const port = process.env.PORT || 3000;
@@ -36,4 +36,9 @@ const port = process.env.PORT || 3000;
 // Creating server
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
+});
+
+app.get("/", (req, res) => {
+  console.log("opened");
+  res.send("first");
 });
