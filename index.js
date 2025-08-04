@@ -7,7 +7,10 @@ const cors = require("cors");
 // Importing dotenv for MongoDB
 dotenv.config();
 const app = express();
-
+app.use(cors({
+  origin: "https://your-frontend.vercel.app",
+  credentials: true
+}));
 // Middleware to parse JSON and URL-encoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -42,3 +45,4 @@ app.get("/", (req, res) => {
   console.log("opened");
   res.send("first");
 });
+
